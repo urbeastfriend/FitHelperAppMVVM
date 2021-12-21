@@ -31,11 +31,13 @@ class MainActivity : AppCompatActivity(){
 
         drawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-        navController = findNavController(R.id.nav_host_fragment)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.findNavController()
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.HomeFragment
+                R.id.homeFragment
         ),drawerLayout
         )
 
