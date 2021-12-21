@@ -56,6 +56,9 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$testExtJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
 
+    //shimmer stuff
+    implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
+
     //Fragment
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
 

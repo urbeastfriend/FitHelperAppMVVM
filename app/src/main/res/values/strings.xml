@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">FitHelperApp</string>
+
+
+    <string name="search_your_recipes">Поиск рецептов</string>
+    <string name="meal_categories">Еда по категориям</string>
+
+    <string name="favorites">Избранное</string>
+    <string name="recipes">Рецепты</string>
+    <string name="cookwith">Приготовить из</string>
+    <string name="helper">Fit-рекомендации</string>
+    <string name="mealplanner">Планировать приёмы пищи</string>
+    <string name="shoppingcart">Список покупок</string>
+    <string name="settings">Настройки</string>
+
+
+
 </resources>

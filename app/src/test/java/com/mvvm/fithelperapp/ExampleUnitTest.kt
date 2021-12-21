@@ -1,4 +1,4 @@
-package com.example.fithelperapp
+package com.mvvm.fithelperapp
 
 import org.junit.Test
 
