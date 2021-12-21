@@ -33,7 +33,7 @@ buildscript {
 
         dataStoreVersion = "1.0.0"
 
-        gradleVersion = "7.0.3"
+        gradleVersion = '7.0.4'
         kotlinVersion = "1.6.0"
 
     }
@@ -44,7 +44,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$gradleVersion"
+        classpath 'com.android.tools.build:gradle:7.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
