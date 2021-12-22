@@ -30,6 +30,9 @@ object AppModule {
     @Provides
     fun provideRecipesDao(db:Database) = db.recipeDao()
 
+    @Provides
+    fun provideCategoriesDao(db:Database) = db.categoriesDao()
+
     @ApplicationScope
     @Provides
     @Singleton

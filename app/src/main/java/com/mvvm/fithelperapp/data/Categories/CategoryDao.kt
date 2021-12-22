@@ -2,11 +2,14 @@ package com.mvvm.fithelperapp.data.Categories
 
 import androidx.room.*
 
+import kotlinx.coroutines.flow.Flow
+
 
 @Dao
 interface CategoryDao {
 
     @Query("SELECT * FROM categories_table ORDER BY name")
+    fun getCategories() : Flow<List<Category>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(category: Category)
