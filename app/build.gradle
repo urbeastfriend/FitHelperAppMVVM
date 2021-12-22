@@ -71,6 +71,9 @@ dependencies {
     // picasso
     implementation "com.squareup.picasso:picasso:$picassoVersion"
 
+    // viewpager
+    implementation "androidx.viewpager2:viewpager2:$viewpagerVersion"
+
     //Fragment
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
 

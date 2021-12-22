@@ -11,12 +11,13 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.mvvm.fithelperapp.R
 import com.mvvm.fithelperapp.data.Categories.Category
+import com.mvvm.fithelperapp.data.Recipes.Recipe
 import com.mvvm.fithelperapp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home), CategoriesRecyclerViewAdapter.OnItemClickListener{
+class HomeFragment : Fragment(R.layout.fragment_home), CategoriesRecyclerViewAdapter.OnHomeRVClickListener,RecipesViewPagerAdapter.OnHomeVPListener{
 
     private val viewModel: HomeViewModel by viewModels()
 
@@ -27,6 +28,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), CategoriesRecyclerViewAda
         val binding = FragmentHomeBinding.bind(view)
 
         val categoriesAdapter = CategoriesRecyclerViewAdapter(this)
+        val recipesAdapter = RecipesViewPagerAdapter(this)
+
 
         binding.apply {
             recyclerCategory.apply {
@@ -37,6 +40,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), CategoriesRecyclerViewAda
                 isNestedScrollingEnabled = true
 
             }
+            viewPagerHeader.apply {
+                adapter = recipesAdapter
+                setPadding(20,0,150,0)
+            }
 
         }
 
@@ -45,14 +52,22 @@ class HomeFragment : Fragment(R.layout.fragment_home), CategoriesRecyclerViewAda
                 binding.shimmerCategory.root.visibility = View.INVISIBLE
                 categoriesAdapter.submitList(it)
             }
-            else{
 
+        }
+        viewModel.recipes.observe(viewLifecycleOwner){
+            if(it.isNotEmpty()){
+                binding.shimmerMeal.root.visibility = View.INVISIBLE
+                recipesAdapter.submitList(it)
             }
         }
 
     }
 
     override fun onCategoryClick(category: Category) {
-        viewModel.onCategorySelected(category);
+        viewModel.onCategorySelected(category)
+    }
+
+    override fun onRecipeClick(recipe: Recipe) {
+        viewModel.onRecipeSelected(recipe)
     }
 }

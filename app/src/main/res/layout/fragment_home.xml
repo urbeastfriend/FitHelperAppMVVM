@@ -57,7 +57,7 @@
                     app:drawableStartCompat="@drawable/ic_search_primary_light" />
             </androidx.cardview.widget.CardView>
 
-            <androidx.viewpager.widget.ViewPager
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPagerHeader"
                 android:foregroundGravity="center"
                 android:overScrollMode="never"

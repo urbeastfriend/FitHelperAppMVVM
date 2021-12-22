@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso
 import java.lang.Exception
 
 
-class CategoriesRecyclerViewAdapter(private val listener: OnItemClickListener) : ListAdapter<Category, CategoriesRecyclerViewAdapter.CategoriesViewHolder>(DiffCallBack()){
+class CategoriesRecyclerViewAdapter(private val listener: OnHomeRVClickListener) : ListAdapter<Category, CategoriesRecyclerViewAdapter.CategoriesViewHolder>(DiffCallBack()){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
@@ -47,16 +47,13 @@ class CategoriesRecyclerViewAdapter(private val listener: OnItemClickListener) :
             binding.apply {
                 val url: String = Client.BASE_URL + category.thumbpath
                 categoryName.text = category.name
-                Picasso.get().load(url).placeholder(R.drawable.ic_circle).resize(320,200)
+                Picasso.get().load(url).networkPolicy(NetworkPolicy.OFFLINE).placeholder(R.drawable.ic_circle).resize(320,200)
                     .into(categoryThumb, object : Callback {
                         override fun onSuccess() {
 
                         }
 
                         override fun onError(e: Exception?) {
-                            Log.d("Retrofit", "path = $url  ")
-                            Log.d("Retrofit", e?.message?: "Error" )
-                            Log.d("Retrofit", e?.stackTraceToString()?: "Error" )
 
                             Picasso.get().load(url).placeholder(R.drawable.ic_circle).resize(320,200)
                                 .into(categoryThumb)
@@ -70,7 +67,7 @@ class CategoriesRecyclerViewAdapter(private val listener: OnItemClickListener) :
 
 
 
-    interface OnItemClickListener{
+    interface OnHomeRVClickListener{
 
         fun onCategoryClick(category: Category)
     }
