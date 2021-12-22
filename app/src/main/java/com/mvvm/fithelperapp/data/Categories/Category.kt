@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity(tableName = "categories_table")
-class Category(
+data class Category(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
     val thumbpath: String,

@@ -59,6 +59,18 @@ dependencies {
     //shimmer stuff
     implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
 
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+
+    // okhttp
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    // picasso
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
+
     //Fragment
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
 
