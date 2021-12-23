@@ -14,5 +14,18 @@
     <string name="settings">Настройки</string>
 
 
+    <string name="portion">В одной порции</string>
+    <string name="cooktime">Время приготовления</string>
+    <string name="proteins">Белки гр.</string>
+    <string name="fats">Жиры гр.</string>
+    <string name="carbs">Углеводы гр.</string>
+    <string name="calories">Калории</string>
+    <string name="category">Категория</string>
+    <string name="country">Страна</string>
+    <string name="instructions">Инструкции</string>
+    <string name="dot_loading">...</string>
+    <string name="Ingredients">Ингридиенты</string>
+
+
 
 </resources>

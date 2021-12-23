@@ -9,5 +9,18 @@
         android:id="@+id/homeFragment"
         android:name="com.mvvm.fithelperapp.ui.home.HomeFragment"
         android:label="@string/recipes"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.mvvm.fithelperapp.ui.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="recipe"
+            app:argType="com.mvvm.fithelperapp.data.Recipes.Recipe" />
+    </fragment>
 </navigation>
