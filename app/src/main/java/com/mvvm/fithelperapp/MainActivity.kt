@@ -1,10 +1,12 @@
 package com.mvvm.fithelperapp
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -42,6 +44,20 @@ class MainActivity : AppCompatActivity(){
                 R.id.homeFragment
         ),drawerLayout
         )
+
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if(destination.id == R.id.detailsFragment){
+                toolbar.visibility = View.GONE
+            }
+            else{
+                toolbar.visibility = View.VISIBLE
+            }
+        }
+
+
+
+
 
 
         setupActionBarWithNavController(navController,appBarConfiguration)
