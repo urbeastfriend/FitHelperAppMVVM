@@ -1,13 +1,12 @@
 package com.mvvm.fithelperapp.ui.home
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mvvm.fithelperapp.R
-import com.mvvm.fithelperapp.api.Client
+import com.mvvm.fithelperapp.api.FitHelperApi
 import com.mvvm.fithelperapp.data.Categories.Category
 import com.mvvm.fithelperapp.databinding.ItemRecyclerviewCategoryBinding
 import com.squareup.picasso.Callback
@@ -45,7 +44,7 @@ class CategoriesRecyclerViewAdapter(private val listener: OnHomeRVClickListener)
         }
         fun bind(category: Category){
             binding.apply {
-                val url: String = Client.BASE_URL + category.thumbpath
+                val url: String = FitHelperApi.BASE_URL + category.thumbpath
                 categoryName.text = category.name
                 Picasso.get().load(url).networkPolicy(NetworkPolicy.OFFLINE).placeholder(R.drawable.ic_circle).resize(320,200)
                     .into(categoryThumb, object : Callback {

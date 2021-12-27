@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "recipes_table")
 data class Recipe (
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = false) val id: Int,
     val name: String,
     val category: String,
     val country: String,
@@ -21,5 +21,3 @@ data class Recipe (
     val cooktime: String,
     val favorite: Boolean = false
     ) : Parcelable
-{
-}

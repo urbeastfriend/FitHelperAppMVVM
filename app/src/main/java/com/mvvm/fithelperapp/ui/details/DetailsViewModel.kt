@@ -32,7 +32,7 @@ class DetailsViewModel @Inject constructor(
     val measures = joinStringWithMarking(melist)
 
     private fun joinStringWithMarking(list: List<String>) : String{
-        val marking = "\n \u2022 "
+        val marking = ""
         var res = marking
 
         for (a in list){

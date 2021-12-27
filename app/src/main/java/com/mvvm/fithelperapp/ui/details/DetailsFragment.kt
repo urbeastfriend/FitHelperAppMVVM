@@ -2,36 +2,31 @@ package com.mvvm.fithelperapp.ui.details
 
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
-import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.mvvm.fithelperapp.R
-import com.mvvm.fithelperapp.api.Client
 import com.mvvm.fithelperapp.databinding.FragmentDetailsBinding
 import com.squareup.picasso.Callback
 import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.Exception
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import com.google.android.material.appbar.AppBarLayout
+import com.mvvm.fithelperapp.api.FitHelperApi
 
 
 @AndroidEntryPoint
 class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     private val viewModel: DetailsViewModel by viewModels()
-    lateinit var binding: FragmentDetailsBinding
+    private lateinit var binding: FragmentDetailsBinding
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -92,7 +87,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             measure.text = viewModel.measures
 
             if (viewModel.thumbpath.isNotBlank()) {
-                Picasso.get().load(Client.BASE_URL + viewModel.thumbpath)
+                Picasso.get().load(FitHelperApi.BASE_URL + viewModel.thumbpath)
                     .networkPolicy(NetworkPolicy.OFFLINE)
                     .into(mealThumb, object : Callback {
                         override fun onSuccess() {
@@ -100,7 +95,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                         }
 
                         override fun onError(e: Exception?) {
-                            Picasso.get().load(Client.BASE_URL + viewModel.thumbpath)
+                            Picasso.get().load(FitHelperApi.BASE_URL + viewModel.thumbpath)
                                 .into(mealThumb)
                         }
                     })
