@@ -1,14 +1,13 @@
 package com.mvvm.fithelperapp.ui.home
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 import com.mvvm.fithelperapp.R
-import com.mvvm.fithelperapp.api.Client
+import com.mvvm.fithelperapp.api.FitHelperApi
 
 
 import com.mvvm.fithelperapp.data.Recipes.Recipe
@@ -53,7 +52,7 @@ class RecipesViewPagerAdapter(
             binding.apply {
                 recipeName.text = recipe.name
 
-                val url: String = Client.BASE_URL + recipe.thumbpath
+                val url: String = FitHelperApi.BASE_URL + recipe.thumbpath
 
                 Picasso.get().load(url).networkPolicy(NetworkPolicy.OFFLINE).placeholder(R.drawable.ic_circle).resize(320,200)
                     .into(recipeThumb, object : Callback {

@@ -8,10 +8,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "categories_table")
 data class Category(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = false) val id: Int,
     val name: String,
     val thumbpath: String,
     val description: String
 
-    ) : Parcelable {
-}
+    ) : Parcelable

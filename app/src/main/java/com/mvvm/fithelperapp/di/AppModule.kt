@@ -23,7 +23,7 @@ object AppModule {
     fun provideDatabase(app: Application,callback: Database.CallBack): Database{
         return Room.databaseBuilder(app,Database::class.java,"database")
             .fallbackToDestructiveMigration()
-            .addCallback(callback)
+
             .build()
     }
 
