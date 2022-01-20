@@ -6,18 +6,11 @@ import com.google.gson.annotations.SerializedName
 
 data class CategoryApiEntity(
     @SerializedName("id")
-    @Expose
     val id: Int,
-
-    @SerializedName("name")
-    @Expose
-    val name: String,
-
-    @SerializedName("thumbpath")
-    @Expose
-    val thumbpath: String,
-
     @SerializedName("description")
-    @Expose
     val description: String,
+    @SerializedName("name")
+    val name: String,
+    @SerializedName("thumbpath")
+    val thumbpath: String
 )

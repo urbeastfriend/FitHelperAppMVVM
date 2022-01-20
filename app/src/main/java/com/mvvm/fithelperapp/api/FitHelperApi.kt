@@ -1,5 +1,6 @@
 package com.mvvm.fithelperapp.api
 
+import com.mvvm.fithelperapp.api.ApiEntities.ApiResponse
 import com.mvvm.fithelperapp.api.ApiEntities.CategoryApiEntity
 import com.mvvm.fithelperapp.api.ApiEntities.RecipeApiEntity
 import retrofit2.Call
@@ -14,7 +15,8 @@ interface FitHelperApi {
     @GET("api/getCategories.php")
     suspend fun getCategories() : List<CategoryApiEntity>
 
-
+    @GET("api/getEverything.php")
+    suspend fun getEverything() : List<ApiResponse>
 
     companion object{
         //const val BASE_URL = "http://192.168.0.93/"

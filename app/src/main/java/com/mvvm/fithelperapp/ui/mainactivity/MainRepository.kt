@@ -1,5 +1,6 @@
 package com.mvvm.fithelperapp.ui.mainactivity
 
+import android.util.Log
 import com.mvvm.fithelperapp.api.EntityMappers.CategoryMapper
 import com.mvvm.fithelperapp.api.EntityMappers.RecipeMapper
 import com.mvvm.fithelperapp.api.FitHelperApi
@@ -11,9 +12,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import retrofit2.Retrofit
-import java.lang.Exception
+
 
 import javax.inject.Inject
+
 
 class MainRepository @Inject constructor(
     private val retrofit: FitHelperApi,
@@ -23,17 +25,25 @@ class MainRepository @Inject constructor(
     private val recipeMapper: RecipeMapper
 ){
 
-    suspend fun getRecipes(): Flow<ApiCallState<Nothing>> = flow{
+    suspend fun getRecordsFromNetwork(): Flow<ApiCallState<Nothing>> = flow{
         emit(ApiCallState.Loading)
         try {
             val networkRecipes = retrofit.getRecipes()
+            val networkCategories = retrofit.getCategories()
             val recipes = recipeMapper.mapFromEntityList(networkRecipes)
+            val categories = categoryMapper.mapFromEntityList(networkCategories)
             for(recipe in recipes){
                 recipeDao.insert(recipe)
             }
+            for (category in categories){
+                categoryDao.insert(category)
+            }
+            emit(ApiCallState.Success)
         }
         catch (e: HttpException){
             emit(ApiCallState.Error(e))
         }
     }
+
+
 }
