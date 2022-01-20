@@ -31,7 +31,7 @@ class MainViewModel @Inject constructor(
 
     fun onDbUpdateRequired(){
         viewModelScope.launch {
-            mainRepository.getRecipes().onEach {
+            mainRepository.getRecordsFromNetwork().onEach {
                 dataState ->
                 _dataState.value = dataState
             }
@@ -48,8 +48,6 @@ class MainViewModel @Inject constructor(
 
     fun onApiCallError(e: HttpException){
         viewModelScope.launch {
-
-            Log.d("retrofit", "onApiCallError: " + e.message())
 
 
             mainEventChannel.send(MainEvent.ShowUpdateResultMessage(EventResultConsts.REQUIRE_UPDATE_RESULT_UNKNOWN_ERROR + e.message))

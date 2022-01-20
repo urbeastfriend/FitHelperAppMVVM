@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_recipesByCategoryFragment"
+            app:destination="@id/recipesByCategoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -22,5 +25,14 @@
         <argument
             android:name="recipe"
             app:argType="com.mvvm.fithelperapp.data.Recipes.Recipe" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipesByCategoryFragment"
+        android:name="com.mvvm.fithelperapp.ui.recipesbycategory.RecipesByCategoryFragment"
+        android:label="Категории"
+        tools:layout="@layout/fragment_recipesbycategory">
+        <argument
+            android:name="categoryClickedPosition"
+            app:argType="integer" />
     </fragment>
 </navigation>
