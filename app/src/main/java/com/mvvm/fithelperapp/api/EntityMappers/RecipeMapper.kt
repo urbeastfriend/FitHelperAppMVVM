@@ -6,6 +6,10 @@ import com.mvvm.fithelperapp.util.EntityMapper
 import javax.inject.Inject
 
 
+/*
+   Класс для приведения модели данных, полученной посредством api запроса к другому виду,
+   в дальнейшем использующуюся в рамках приложения.
+ */
 class RecipeMapper @Inject constructor() : EntityMapper<RecipeApiEntity,Recipe>{
     override fun mapFromEntity(entity: RecipeApiEntity): Recipe {
         return Recipe(

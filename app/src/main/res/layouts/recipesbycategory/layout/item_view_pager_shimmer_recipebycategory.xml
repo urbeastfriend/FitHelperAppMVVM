@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCategory"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="10dp"
+                android:background="#DFDFDF"
+                android:foreground="?attr/selectableItemBackground">
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/imageCategoryBg"
+
+                        android:scaleType="centerCrop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                    <ImageView
+                        android:background="#DFDFDF"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                    <ImageView
+                        android:id="@+id/imageCategory"
+
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:scaleType="fitStart"
+                        android:padding="16dp"/>
+                    <TextView
+                        android:id="@+id/textCategory"
+                        android:background="#DFDFDF"
+                        android:layout_toEndOf="@id/imageCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:maxLines="7"
+                        android:ellipsize="end"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="15sp"
+                        />
+                </RelativeLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <include
+                android:id="@+id/shimmerMeal"
+                android:layout_below="@id/cardCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/item_recyclerview_category_shimmer" />
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

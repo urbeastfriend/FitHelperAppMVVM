@@ -2,9 +2,9 @@ package com.mvvm.fithelperapp.util
 
 import retrofit2.HttpException
 
-sealed class ApiCallState<out R> {
+sealed class ApiCallState {
 
-    object Success : ApiCallState<Nothing>()
-    data class Error(val exception: HttpException) : ApiCallState<Nothing>()
-    object Loading : ApiCallState<Nothing>()
+    object Success : ApiCallState()
+    data class Error(val exception: HttpException) : ApiCallState()
+    object Loading : ApiCallState()
 }

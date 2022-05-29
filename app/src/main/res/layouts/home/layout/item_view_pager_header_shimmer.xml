@@ -24,21 +24,23 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <View
-                    android:layout_marginBottom="45dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="170dp"
-                    android:layout_alignParentBottom="true"
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
-                    android:background="#DFDFDF" />
-                <View
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="70dp"
                     android:layout_alignParentBottom="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="170dp"
+                    android:layout_marginBottom="45dp"
+                    android:background="#DFDFDF" />
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginBottom="15dp"
                     android:background="#DFDFDF" />
             </RelativeLayout>
         </com.facebook.shimmer.ShimmerFrameLayout>

@@ -75,7 +75,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), CategoriesRecyclerViewAda
                         findNavController().navigate(action)
                     }
                     is HomeViewModel.HomeEvent.NavigateToCategoriesScreen ->{
-                        val action = HomeFragmentDirections.actionHomeFragmentToRecipesByCategoryFragment(event.categoryClickedPosition)
+                        val action = HomeFragmentDirections.actionHomeFragmentToRecipesByCategoryFragment(event.category)
                         findNavController().navigate(action)
                     }
                 }
@@ -84,8 +84,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), CategoriesRecyclerViewAda
 
     }
 
-    override fun onCategoryClick(categoryClickedPosition: Int) {
-        viewModel.onCategorySelected(categoryClickedPosition)
+    override fun onCategoryClick(category: Category) {
+        viewModel.onCategorySelected(category)
     }
 
     override fun onRecipeClick(recipe: Recipe) {

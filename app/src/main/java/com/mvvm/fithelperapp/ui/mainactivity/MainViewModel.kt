@@ -23,9 +23,9 @@ class MainViewModel @Inject constructor(
     private val mainEventChannel =  Channel<MainEvent>()
     val mainEvent = mainEventChannel.receiveAsFlow()
 
-    private val _dataState: MutableLiveData<ApiCallState<Nothing>> = MutableLiveData()
+    private val _dataState: MutableLiveData<ApiCallState> = MutableLiveData()
 
-    val dataState: LiveData<ApiCallState<Nothing>>
+    val dataState: LiveData<ApiCallState>
         get() = _dataState
 
 

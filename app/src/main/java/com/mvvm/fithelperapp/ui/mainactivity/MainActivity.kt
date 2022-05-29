@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity(){
 
         subscribeObservers()
         setEventChannelListener()
-        viewModel.onDbUpdateRequired()
+        //viewModel.onDbUpdateRequired()
     }
 
     private fun subscribeObservers(){
