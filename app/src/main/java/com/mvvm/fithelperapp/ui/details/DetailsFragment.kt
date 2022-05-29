@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.Exception
 import androidx.core.view.ViewCompat
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.AppBarLayout
 import com.mvvm.fithelperapp.api.FitHelperApi
 
@@ -42,7 +43,8 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
             toolbar.setNavigationIcon(R.drawable.ic_back)
             toolbar.setNavigationOnClickListener {
-                activity?.onBackPressed()
+                //activity?.onBackPressed()
+                findNavController().popBackStack()
             }
             toolbar.inflateMenu(R.menu.detail_menu)
             menu = toolbar.menu
@@ -61,45 +63,43 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                 }
             }
 
-            val favoriteItem: MenuItem = menu.findItem(R.id.action_setfavorite)
-            val eatThis: MenuItem = menu.findItem(R.id.action_eatthis)
+            val favoriteItem: MenuItem = toolbar.menu.findItem(R.id.action_setfavorite)
+            val eatThisItem: MenuItem = toolbar.menu.findItem(R.id.action_eatthis)
+            setupColorActionBarIcon(favoriteItem,eatThisItem)
 
-            val favoriteItemColor: Drawable = favoriteItem.icon
 
-            setupColorActionBarIcon(favoriteItemColor)
+            viewModel.state.observe(viewLifecycleOwner){
+                it?.let {
+                    collapsingToolbar.title = it.name
+                    category.text = it.category
+                    country.text = it.country
+                    instructions.text = it.instructions
+                    calories.text = it.calories
+                    protein.text = it.protein
+                    fats.text = it.fats
+                    carbs.text = it.carbs
+                    cooktime.text = it.cooktime
+                    ingredient.text = it.ingredients
+                    measure.text = it.measures
+                    favoriteItem.setIcon( if(it.favorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border)
+                    if(it.thumbpath.isNotBlank())
+                    {
+                        Picasso.get().load(FitHelperApi.BASE_URL + it.thumbpath)
+                            .networkPolicy(NetworkPolicy.OFFLINE)
+                            .into(mealThumb, object : Callback {
+                                override fun onSuccess() {
 
-            if (viewModel.favorite) {
-                favoriteItem.setIcon(R.drawable.ic_favorite)
-            } else {
-                favoriteItem.setIcon(R.drawable.ic_favorite_border)
+                                }
+
+                                override fun onError(e: Exception?) {
+                                    Picasso.get().load(FitHelperApi.BASE_URL + it.thumbpath)
+                                        .into(mealThumb)
+                                }
+                            })
+                    }
+                }
             }
 
-            collapsingToolbar.title = viewModel.name
-            category.text = viewModel.category
-            country.text = viewModel.country
-            instructions.text = viewModel.instuctions
-            calories.text = viewModel.calories
-            protein.text = viewModel.protein
-            fats.text = viewModel.fats
-            carbs.text = viewModel.carbs
-            cooktime.text = viewModel.cooktime
-            ingredient.text = viewModel.ingredients
-            measure.text = viewModel.measures
-
-            if (viewModel.thumbpath.isNotBlank()) {
-                Picasso.get().load(FitHelperApi.BASE_URL + viewModel.thumbpath)
-                    .networkPolicy(NetworkPolicy.OFFLINE)
-                    .into(mealThumb, object : Callback {
-                        override fun onSuccess() {
-
-                        }
-
-                        override fun onError(e: Exception?) {
-                            Picasso.get().load(FitHelperApi.BASE_URL + viewModel.thumbpath)
-                                .into(mealThumb)
-                        }
-                    })
-            }
             progressBar.visibility = View.INVISIBLE
         }
 
@@ -134,7 +134,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     }
 
-    private fun setupColorActionBarIcon(favoriteItemColor: Drawable) {
+    private fun setupColorActionBarIcon(favoriteItem: MenuItem, eatThisItem: MenuItem) {
         binding.apply {
             appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
                 if ((collapsingToolbar.height + verticalOffset) < (2 * ViewCompat.getMinimumHeight(
@@ -147,7 +147,14 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                             ContextCompat.getColor(requireContext(), R.color.colorPrimary),
                             BlendMode.SRC_ATOP
                         )
-                        favoriteItemColor.mutate().colorFilter = BlendModeColorFilter(
+
+                        favoriteItem.icon.mutate()
+                            .colorFilter = BlendModeColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.colorPrimary),
+                            BlendMode.SRC_ATOP
+                        )
+                        eatThisItem.icon.mutate()
+                            .colorFilter = BlendModeColorFilter(
                             ContextCompat.getColor(requireContext(), R.color.colorPrimary),
                             BlendMode.SRC_ATOP
                         )
@@ -156,11 +163,18 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                 } else {
                     if (toolbar.navigationIcon != null) {
                         toolbar.navigationIcon?.colorFilter = BlendModeColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.colorPrimary),
+                            ContextCompat.getColor(requireContext(), R.color.colorWhite),
                             BlendMode.SRC_ATOP
                         )
-                        favoriteItemColor.mutate().colorFilter = BlendModeColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.colorPrimary),
+
+                        favoriteItem.icon.mutate()
+                            .colorFilter = BlendModeColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.colorWhite),
+                            BlendMode.SRC_ATOP
+                        )
+                        eatThisItem.icon.mutate()
+                            .colorFilter = BlendModeColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.colorWhite),
                             BlendMode.SRC_ATOP
                         )
                     }

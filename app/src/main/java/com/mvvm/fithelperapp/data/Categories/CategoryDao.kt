@@ -11,6 +11,9 @@ interface CategoryDao {
     @Query("SELECT * FROM categories_table ORDER BY name")
     fun getCategories() : Flow<List<Category>>
 
+    @Query("SELECT * FROM categories_table")
+    fun getCategoriesList() : List<Category>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(category: Category)
 

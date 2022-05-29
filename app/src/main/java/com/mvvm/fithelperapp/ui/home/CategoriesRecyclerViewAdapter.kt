@@ -36,9 +36,9 @@ class CategoriesRecyclerViewAdapter(private val listener: OnHomeRVClickListener)
                 root.setOnClickListener{
                     val position = adapterPosition
                     if(position != RecyclerView.NO_POSITION){
-                        //val categoryClickedPosition = getItem(position)
+                        val categoryClicked = getItem(position)
                         val categoryClickedPosition = position
-                        listener.onCategoryClick(categoryClickedPosition)
+                        listener.onCategoryClick(categoryClicked)
                     }
                 }
             }
@@ -69,7 +69,8 @@ class CategoriesRecyclerViewAdapter(private val listener: OnHomeRVClickListener)
 
     interface OnHomeRVClickListener{
 
-        fun onCategoryClick(categoryClickedPosition: Int)
+
+        fun onCategoryClick(category: Category)
     }
 
     class DiffCallBack : DiffUtil.ItemCallback<Category>(){
@@ -79,6 +80,9 @@ class CategoriesRecyclerViewAdapter(private val listener: OnHomeRVClickListener)
 
         override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {
             return oldItem == newItem
+
         }
+
+
     }
 }

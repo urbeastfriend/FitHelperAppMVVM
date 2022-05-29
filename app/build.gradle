@@ -41,6 +41,13 @@ android {
 
     compileSdkVersion compileSdkVersion
     buildToolsVersion '30.0.2'
+    sourceSets {
+        main {
+            res {
+                srcDirs  'src\\main\\res\\layouts\\details', 'src\\main\\res\\layouts\\home', 'src\\main\\res\\layouts\\recipesbycategory', 'src\\main\\res'
+            }
+        }
+    }
 }
 
 dependencies {

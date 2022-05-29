@@ -17,6 +17,18 @@
         <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layout/item_view_pager_header_shimmer.xml" value="0.20520833333333333" />
         <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layout/item_view_pager_recipesbycategory.xml" value="0.36666666666666664" />
         <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layout/nav_header.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/details/layout/fragment_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/home/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/home/layout/item_recyclerview_category.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/home/layout/item_recyclerview_category_shimmer.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/home/layout/item_view_pager_header.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/home/layout/item_view_pager_header_shimmer.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/recipesbycategory/layout/fragment_recipesbycategory.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/recipesbycategory/layout/fragment_view_pager_title.xml" value="0.23177083333333334" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/recipesbycategory/layout/item_recyclerview_recipebycategory.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/recipesbycategory/layout/item_view_pager_recipebycategory.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/recipesbycategory/layout/item_view_pager_recipesbycategory.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/layouts/recipesbycategory/layout/item_view_pager_shimmer_recipebycategory.xml" value="0.36666666666666664" />
         <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/menu/detail_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/androidstudioProjects/FitHelperNew/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
       </map>

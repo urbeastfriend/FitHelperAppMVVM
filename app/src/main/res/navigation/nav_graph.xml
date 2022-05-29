@@ -32,7 +32,7 @@
         android:label="Категории"
         tools:layout="@layout/fragment_recipesbycategory">
         <argument
-            android:name="categoryClickedPosition"
-            app:argType="integer" />
+            android:name="category"
+            app:argType="com.mvvm.fithelperapp.data.Categories.Category" />
     </fragment>
 </navigation>

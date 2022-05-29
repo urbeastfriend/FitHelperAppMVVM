@@ -10,13 +10,13 @@ import com.mvvm.fithelperapp.api.FitHelperApi
 import com.mvvm.fithelperapp.data.Categories.Category
 import com.mvvm.fithelperapp.data.Recipes.Recipe
 import com.mvvm.fithelperapp.databinding.ItemRecyclerviewRecipebycategoryBinding
-import com.mvvm.fithelperapp.databinding.ItemViewPagerRecipesbycategoryBinding
+
 import com.squareup.picasso.Callback
 import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 
-class ViewPagerRecipesByCategoryAdapter(private val listener: OnRecipeRVClickListener) :
-    ListAdapter<Recipe, ViewPagerRecipesByCategoryAdapter.RecipesViewHolder>(DiffCallBack()) {
+class RecyclerViewRecipesByCategoryAdapter(private val listener: OnRecipeRVClickListener) :
+    ListAdapter<Recipe, RecyclerViewRecipesByCategoryAdapter.RecipesViewHolder>(DiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesViewHolder {
         val binding = ItemRecyclerviewRecipebycategoryBinding.inflate(LayoutInflater.from(parent.context),parent,false)

@@ -25,7 +25,7 @@ class MainRepository @Inject constructor(
     private val recipeMapper: RecipeMapper
 ){
 
-    suspend fun getRecordsFromNetwork(): Flow<ApiCallState<Nothing>> = flow{
+    suspend fun getRecordsFromNetwork(): Flow<ApiCallState> = flow{
         emit(ApiCallState.Loading)
         try {
             val networkRecipes = retrofit.getRecipes()

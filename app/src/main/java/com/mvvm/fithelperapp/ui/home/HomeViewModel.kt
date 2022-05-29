@@ -27,9 +27,9 @@ class HomeViewModel @Inject constructor(
 
 
 
-    fun onCategorySelected(categoryClickedPosition: Int){
+    fun onCategorySelected(category: Category){
         viewModelScope.launch {
-            homeEventChannel.send(HomeEvent.NavigateToCategoriesScreen(categoryClickedPosition))
+            homeEventChannel.send(HomeEvent.NavigateToCategoriesScreen(category))
         }
     }
 
@@ -44,7 +44,7 @@ class HomeViewModel @Inject constructor(
 
     sealed class HomeEvent{
 
-        data class NavigateToCategoriesScreen(val categoryClickedPosition: Int) : HomeEvent()
+        data class NavigateToCategoriesScreen(val category: Category) : HomeEvent()
 
         data class NavigateToRecipeScreen(val recipe: Recipe) : HomeEvent()
     }
