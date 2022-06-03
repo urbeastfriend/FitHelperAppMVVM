@@ -36,12 +36,17 @@ class RecipesByCategoryFragment : Fragment(R.layout.fragment_recipesbycategory) 
 
         binding.apply {
 
-            viewModel.allCategories.observe(viewLifecycleOwner){
-                val viewPagerAdapter = ViewPagerTitlesAdapter(fragment,it)     // it: Flow<List<Category>> but need List<Category>
-                viewPager.adapter = viewPagerAdapter
-                TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-                    tab.text = it[position].name      // same as above
-                }.attach()
+            viewModel.categories.observe(viewLifecycleOwner){
+                if(it.isNotEmpty()) {
+                    val viewPagerAdapter = ViewPagerTitlesAdapter(
+                        fragment,
+                        it
+                    )
+                    viewPager.adapter = viewPagerAdapter
+                    TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                        tab.text = it[position].name
+                    }.attach()
+                }
             }
 
         }
