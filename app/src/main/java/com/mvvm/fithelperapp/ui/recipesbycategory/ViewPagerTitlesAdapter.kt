@@ -17,7 +17,7 @@ class ViewPagerTitlesAdapter(fragment: Fragment,_categories:List<Category>) : Fr
     override fun createFragment(position: Int): Fragment {
         val fragment = ViewPagerRecipesByCategoryFragment()
         fragment.arguments = Bundle().apply {
-            // Our object is just an integer :-P
+
             putParcelable(ARG_CATEGORY, categories[position])
         }
         return fragment

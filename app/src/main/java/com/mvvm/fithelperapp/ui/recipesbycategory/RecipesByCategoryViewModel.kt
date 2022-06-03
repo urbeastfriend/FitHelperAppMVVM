@@ -17,45 +17,13 @@ import javax.inject.Inject
 @HiltViewModel
 class RecipesByCategoryViewModel @Inject constructor(
     private val categoryDao: CategoryDao,
-    private val recipeDao: RecipeDao,
     private val savedState: SavedStateHandle
 ) : ViewModel() {
 
-    private val _state = MutableLiveData<RecipesByCategoryViewState>()
-    val state: LiveData<RecipesByCategoryViewState> get() = _state
-
-    private val _currentCategory = MutableLiveData<Category>()
-    val currentCategory: LiveData<Category> get() = _currentCategory
-
-    private val _allCategories = MutableLiveData<Flow<List<Category>>>()
-    val allCategories: LiveData<Flow<List<Category>>> get() = _allCategories
+    val currentCategory = savedState.get<Category>("category")
 
 
+    val categories = categoryDao.getCategories().asLiveData()
 
 
-
-
-    init {
-        viewModelScope.launch {
-
-            val categories = categoryDao.getCategories()
-            _allCategories.value = categories
-            val currentCategory = savedState.get<Category>("category")
-            _currentCategory.value = currentCategory!!
-
-        }
-    }
-
-    data class RecipesByCategoryViewState(
-        val currentCategory: Category,
-        val recipesByCategory: Flow<List<Recipe>>
-        )
-
-    private fun getRecipesByCategory(categoryname: String) {
-
-    }
-
-    private suspend fun getCategoriesListAsync(): List<Category> = withContext(Dispatchers.IO) {
-        categoryDao.getCategoriesList()
-    }
 }

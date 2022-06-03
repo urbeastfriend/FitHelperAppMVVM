@@ -29,10 +29,11 @@
                         android:scaleType="centerCrop"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+
                     <ImageView
-                        android:background="#D9770202"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:background="#D9770202" />
                     <ImageView
                         android:id="@+id/imageCategory"
                         android:src="@drawable/sample_image_category"
@@ -61,13 +62,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_below="@id/cardCategory"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
