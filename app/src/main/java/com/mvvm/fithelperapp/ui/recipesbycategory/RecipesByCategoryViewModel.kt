@@ -6,8 +6,10 @@ import com.mvvm.fithelperapp.data.Categories.Category
 import com.mvvm.fithelperapp.data.Categories.CategoryDao
 import com.mvvm.fithelperapp.data.Recipes.Recipe
 import com.mvvm.fithelperapp.data.Recipes.RecipeDao
+import com.mvvm.fithelperapp.ui.home.HomeViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -20,6 +22,9 @@ class RecipesByCategoryViewModel @Inject constructor(
     private val recipeDao: RecipeDao,
     private val savedState: SavedStateHandle
 ) : ViewModel() {
+
+    private val _eventsChannel = Channel<RecipeByCategoriesEvent>()
+    val eventsChannel = _eventsChannel.receiveAsFlow()
 
     val categories = categoryDao.getCategories().asLiveData()
 
@@ -34,5 +39,16 @@ class RecipesByCategoryViewModel @Inject constructor(
         viewModelScope.launch {
             currentCategory.value = categoryName
         }
+    }
+
+    fun onRecipeSelected(recipe: Recipe){
+        viewModelScope.launch {
+            _eventsChannel.send(RecipesByCategoryViewModel.RecipeByCategoriesEvent.NavigateToRecipeScreen(recipe))
+        }
+    }
+
+    sealed class RecipeByCategoriesEvent{
+
+        data class NavigateToRecipeScreen(val recipe: Recipe) : RecipeByCategoriesEvent()
     }
 }

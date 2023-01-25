@@ -34,5 +34,8 @@
         <argument
             android:name="category"
             app:argType="string" />
+        <action
+            android:id="@+id/action_recipesByCategoryFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
 </navigation>
