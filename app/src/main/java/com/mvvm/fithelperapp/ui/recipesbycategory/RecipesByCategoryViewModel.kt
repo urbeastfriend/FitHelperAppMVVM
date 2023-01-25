@@ -17,13 +17,22 @@ import javax.inject.Inject
 @HiltViewModel
 class RecipesByCategoryViewModel @Inject constructor(
     private val categoryDao: CategoryDao,
+    private val recipeDao: RecipeDao,
     private val savedState: SavedStateHandle
 ) : ViewModel() {
 
-    val currentCategory = savedState.get<Category>("category")
-
-
     val categories = categoryDao.getCategories().asLiveData()
 
+    private val currentCategory = savedState.getLiveData("category","")
 
+
+    private val currentRecipesFlow = currentCategory.asFlow().flatMapLatest { recipeDao.getRecipesByCategory(it) }
+    val currentRecipes = currentRecipesFlow.asLiveData()
+
+
+    fun onCurrentCategoryChanged(categoryName: String){
+        viewModelScope.launch {
+            currentCategory.value = categoryName
+        }
+    }
 }

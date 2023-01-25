@@ -9,24 +9,11 @@
     tools:context=".ui.mainactivity.MainActivity"
     tools:openDrawer="start">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:visibility="invisible"
-            />
-    </FrameLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
 
         <androidx.appcompat.widget.Toolbar
@@ -54,5 +41,38 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
+
+    <FrameLayout
+        android:id="@+id/updatebar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blacktransparent"
+        android:clickable="true"
+        android:visibility="invisible"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/updateInfo"
+
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </FrameLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

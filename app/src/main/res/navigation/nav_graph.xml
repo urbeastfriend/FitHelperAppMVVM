@@ -33,6 +33,6 @@
         tools:layout="@layout/fragment_recipesbycategory">
         <argument
             android:name="category"
-            app:argType="com.mvvm.fithelperapp.data.Categories.Category" />
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -68,6 +68,7 @@
                 android:layout_height="150dp" />
 
             <include
+
                 android:id="@+id/shimmerMeal"
                 layout="@layout/item_view_pager_header_shimmer" />
 

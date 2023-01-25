@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">FitHelperApp</string>
+    <string name="updateInfo">Происходит обновление данных приложения</string>
 
 
     <string name="search_your_recipes">Поиск рецептов</string>

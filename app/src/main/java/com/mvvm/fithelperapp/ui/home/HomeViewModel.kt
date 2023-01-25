@@ -1,5 +1,6 @@
 package com.mvvm.fithelperapp.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -24,6 +25,7 @@ class HomeViewModel @Inject constructor(
 
     val categories = categoryDao.getCategories().asLiveData()
     val recipes = recipeDao.getRecipes().asLiveData()
+
 
 
 

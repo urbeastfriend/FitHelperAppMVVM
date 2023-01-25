@@ -26,5 +26,14 @@
 
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvrecipesbycategory"
+        android:layout_below="@id/cardCategory"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
 
 </LinearLayout>

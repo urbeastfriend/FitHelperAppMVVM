@@ -55,13 +55,7 @@
                         android:text="@string/meal_categories"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewwww"
-                android:layout_below="@id/cardCategory"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
