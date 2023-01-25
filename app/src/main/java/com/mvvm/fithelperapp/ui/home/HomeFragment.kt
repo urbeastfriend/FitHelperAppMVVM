@@ -1,6 +1,7 @@
 package com.mvvm.fithelperapp.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -62,6 +63,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), CategoriesRecyclerViewAda
                 binding.shimmerMeal.root.visibility = View.INVISIBLE
                 recipesAdapter.submitList(it)
             }
+
         }
 
 
@@ -75,7 +77,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), CategoriesRecyclerViewAda
                         findNavController().navigate(action)
                     }
                     is HomeViewModel.HomeEvent.NavigateToCategoriesScreen ->{
-                        val action = HomeFragmentDirections.actionHomeFragmentToRecipesByCategoryFragment(event.category)
+                        val action = HomeFragmentDirections.actionHomeFragmentToRecipesByCategoryFragment(event.category.name)
                         findNavController().navigate(action)
                     }
                 }

@@ -103,10 +103,10 @@ class MainActivity : AppCompatActivity(){
                         Snackbar.make(parentLayout,event.msg,Snackbar.LENGTH_LONG).show()
                     }
                     is MainEvent.ShowProgressBar ->{
-                        binding.progressBar.visibility = View.VISIBLE
+                        binding.updatebar.visibility = View.VISIBLE
                     }
                     is MainEvent.HideProgressBar ->{
-                        binding.progressBar.visibility = View.GONE
+                        binding.updatebar.visibility = View.GONE
                     }
                 }
             }

@@ -18,4 +18,5 @@
     <color name="teal">#08E8DE</color>
     <color name="blue">#4272f5</color>
     <color name="orange">#FFA500</color>
+    <color name="blacktransparent">#99000000</color>
 </resources>

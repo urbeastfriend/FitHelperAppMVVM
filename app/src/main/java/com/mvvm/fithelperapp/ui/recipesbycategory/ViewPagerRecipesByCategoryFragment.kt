@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.mvvm.fithelperapp.R
 import com.mvvm.fithelperapp.api.FitHelperApi
 import com.mvvm.fithelperapp.data.Categories.Category
+import com.mvvm.fithelperapp.data.Recipes.Recipe
 import com.mvvm.fithelperapp.databinding.ItemViewPagerRecipebycategoryBinding
 import com.squareup.picasso.Callback
 import com.squareup.picasso.NetworkPolicy
@@ -16,6 +18,7 @@ import com.squareup.picasso.Picasso
 import java.lang.Exception
 
 const val ARG_CATEGORY = "category"
+
 
 
 class ViewPagerRecipesByCategoryFragment : Fragment() {
@@ -30,7 +33,9 @@ class ViewPagerRecipesByCategoryFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        arguments?.takeIf { it.containsKey(ARG_CATEGORY) }?.apply {
+        val viewModel: RecipesByCategoryViewModel by viewModels()
+
+        arguments?.takeIf { it.containsKey(ARG_CATEGORY)}?.apply {
             val binding = ItemViewPagerRecipebycategoryBinding.bind(view)
             val category: Category = getParcelable<Category>(ARG_CATEGORY)!!
             val url: String = FitHelperApi.BASE_URL + category.thumbpath
