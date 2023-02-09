@@ -1,7 +1,7 @@
 # TopSecretProj
 MVVM remaster of https://github.com/urbeastfriend/FitHelperAndroidApp
 
-FitHelper android application in java 
+FitHelper android application in kotlin 
 that allows to:
 search for recipes by name,category,ingredients, etc ,
 receive personalized nutritional recommendations based on BMI and user-set goals ,
