@@ -1,4 +1,4 @@
-# TopSecretProj
+# FitHelperAppMVVM
 MVVM remaster of https://github.com/urbeastfriend/FitHelperAndroidApp
 
 FitHelper android application in kotlin 
